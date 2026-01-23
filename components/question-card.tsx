@@ -14,7 +14,7 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
           {question.text}
         </h2>
         <Button
-          className="min-w-[120px] py-6 text-lg"
+          className="min-w-30 py-6 text-lg"
           onClick={() => onAnswer()}
           size="lg"
         >

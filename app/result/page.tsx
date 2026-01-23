@@ -1,32 +1,41 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { ResultSummary } from "@/components/result-summary";
-import { calculatePersonality } from "@/lib/scoring";
-import type { PersonalityType } from "@/lib/types";
+import { calculateResult } from "@/lib/scoring";
+import type { PersonalityResult, TopicId } from "@/lib/types";
 
 function ResultContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [personality, setPersonality] = useState<PersonalityType | null>(null);
 
-  useEffect(() => {
-    const scoresParam = searchParams.get("scores");
-    if (scoresParam) {
-      try {
-        const scores = JSON.parse(decodeURIComponent(scoresParam));
-        const result = calculatePersonality(scores);
-        setPersonality(result);
-      } catch (e) {
-        console.error("Error parsing scores:", e);
-        // Handle error or redirect home
-      }
+  const scoreParam = searchParams.get("score");
+  const topicParam = searchParams.get("topicId");
+
+  let personality: PersonalityResult | null = null;
+
+  const validTopics: TopicId[] = ["work", "social", "love", "leisure"];
+
+  if (
+    scoreParam &&
+    topicParam &&
+    (validTopics as string[]).includes(topicParam)
+  ) {
+    try {
+      const score = Number.parseInt(scoreParam, 10);
+      console.log(score)
+
+      // 2. ใช้ "as TopicId" เพื่อยืนยันกับ TypeScript
+      personality = calculateResult(topicParam as TopicId, score);
+      console.log("personality:", personality)
+    } catch (e) {
+      console.error("Error calculating result:", e);
     }
-  }, [searchParams]);
+  }
 
   const handleRestart = () => {
-    router.push("/quiz");
+    router.push("/"); // Go back to topic selection
   };
 
   if (!personality) {
