@@ -8,11 +8,11 @@ export function calculateResult(
   let groupId: GroupId;
 
   if (totalScore >= 18) {
-    groupId = "A";
+    groupId = "chance";
   } else if (totalScore >= 10) {
-    groupId = "B";
+    groupId = "external";
   } else {
-    groupId = "C";
+    groupId = "internal";
   }
 
   // random 0, 1, 2, 3
@@ -25,6 +25,5 @@ export function calculateResult(
     variantId: randomIndex + 1,
     name: selectedResult.name,
     description: selectedResult.desc,
-    traits: [], // You can populate this based on your logic
   };
 }

@@ -15,7 +15,7 @@ function ResultContent() {
 
   let personality: PersonalityResult | null = null;
 
-  const validTopics: TopicId[] = ["work", "social", "love", "leisure"];
+  const validTopics: TopicId[] = ["finance", "health", "love", "work"];
 
   if (
     scoreParam &&

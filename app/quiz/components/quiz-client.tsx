@@ -47,7 +47,7 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
 
   return (
     <div
-      className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4 transition-all duration-500"
+      className="fade-out flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4 transition-all duration-1000"
       style={{
         backgroundImage: currentQuestion.backgroundImage
           ? `url(${currentQuestion.backgroundImage})`

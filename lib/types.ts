@@ -1,6 +1,6 @@
 // 1. กำหนด Literal Types เพื่อป้องกันการพิมพ์ผิด (Typo)
-export type TopicId = "work" | "social" | "love" | "leisure";
-export type GroupId = "A" | "B" | "C";
+export type TopicId = "finance" | "health" | "love" | "work";
+export type GroupId = "chance" | "external" | "internal";
 
 export interface Topic {
   id: TopicId;
@@ -60,5 +60,4 @@ export interface PersonalityResult {
   variantId: number; // 1-4
   name: string;
   description: string;
-  traits: string[];
 }
