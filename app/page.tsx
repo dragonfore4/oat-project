@@ -24,10 +24,10 @@ export default function Home() {
               <div className="flex h-full transform flex-col items-center rounded-2xl border border-transparent bg-white p-8 text-center shadow-lg transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-3xl text-blue-600">
                   {/* Simple icon mapping based on topic ID */}
-                  {topic.id === "work" && "💼"}
-                  {topic.id === "social" && "🗣️"}
+                  {topic.id === "finance" && "💼"}
+                  {topic.id === "health" && "🗣️"}
                   {topic.id === "love" && "❤️"}
-                  {topic.id === "leisure" && "☕"}
+                  {topic.id === "work" && "☕"}
                 </div>
                 <h2 className="mb-2 font-bold text-2xl text-gray-800 transition-colors group-hover:text-blue-600">
                   {topic.title}

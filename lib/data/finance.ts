@@ -1,10 +1,10 @@
 import { createInfo, createQ } from "../helpers";
 import type { Question } from "../types";
 
-export const leisureQuestions: Question[] = [
+export const financeQuestions: Question[] = [
   createQ(
     "ls1",
-    "leisure",
+    "finance",
     "ในวันหยุดยาวที่กำลังจะมาถึง คุณวางแผนจะ...",
     "ออกไปเที่ยวต่างจังหวัด/ต่างประเทศ",
     "ไปคาเฟ่หรือเดินห้างชิลล์ๆ",
@@ -12,7 +12,7 @@ export const leisureQuestions: Question[] = [
   ),
   createQ(
     "ls2",
-    "leisure",
+    "finance",
     "งานอดิเรกที่คุณมักจะทำเป็นประจำคือ...",
     "เล่นกีฬาหรือกิจกรรมที่ได้ขยับตัว",
     "เล่นเกมหรือเล่นโซเชียล",
@@ -20,16 +20,16 @@ export const leisureQuestions: Question[] = [
   ),
   createQ(
     "ls3",
-    "leisure",
+    "finance",
     "เวลาเลือกซื้อของใหม่สักชิ้น คุณเน้นอะไร...",
     "ฟังก์ชันการใช้งานและคุณภาพ",
     "ความสวยงามและดีไซน์",
     "ราคาที่คุ้มค่าและประหยัด"
   ),
-  createInfo("info_ls1", "leisure", "ไลฟ์สไตล์สะท้อนตัวตนได้ดีที่สุด มาดูกันต่อครับ"), // หน้า 4
+  createInfo("info_ls1", "finance", "ไลฟ์สไตล์สะท้อนตัวตนได้ดีที่สุด มาดูกันต่อครับ"), // หน้า 4
   createQ(
     "ls4",
-    "leisure",
+    "finance",
     "สไตล์อาหารที่คุณชอบทานบ่อยที่สุดคือ...",
     "อาหารแนวสุขภาพหรือออร์แกนิก",
     "อาหารรสจัดจ้านหรือบุฟเฟต์",
@@ -37,7 +37,7 @@ export const leisureQuestions: Question[] = [
   ),
   createQ(
     "ls5",
-    "leisure",
+    "finance",
     "บรรยากาศแบบไหนที่ทำให้คุณรู้สึกผ่อนคลายที่สุด...",
     "เสียงคลื่นและลมทะเล",
     "ความเงียบสงบในห้องส่วนตัว",
@@ -45,16 +45,16 @@ export const leisureQuestions: Question[] = [
   ),
   createQ(
     "ls6",
-    "leisure",
+    "finance",
     "คุณมักจะใช้เงินไปกับเรื่องอะไรมากที่สุด...",
     "การท่องเที่ยวและประสบการณ์",
     "ของสะสมและเทคโนโลยี",
     "อาหารและของกินเล่น"
   ),
-  createInfo("info_ls2", "leisure", "อีกแค่ 2 ข้อ จะรู้แล้วว่าไลฟ์สไตล์คุณคือแบบไหน"), // หน้า 8
+  createInfo("info_ls2", "finance", "อีกแค่ 2 ข้อ จะรู้แล้วว่าไลฟ์สไตล์คุณคือแบบไหน"), // หน้า 8
   createQ(
     "ls7",
-    "leisure",
+    "finance",
     "ถ้ามีเวลาว่าง 1 ชั่วโมง คุณจะเลือก...",
     "ออกไปเดินเล่นรับลม",
     "งีบหลับพักสายตา",
@@ -62,7 +62,7 @@ export const leisureQuestions: Question[] = [
   ),
   createQ(
     "ls8",
-    "leisure",
+    "finance",
     "คุณจำกัดนิยามความสุขของตัวเองว่า...",
     "การได้ทำตามความฝัน",
     "การมีสุขภาพกายและใจที่แข็งแรง",

@@ -1,18 +1,18 @@
-import { leisureQuestions } from "./data/leisure";
+import { financeQuestions } from "./data/finance";
+import { healthQuestions } from "./data/health";
 import { loveQuestions } from "./data/love";
-import { socialQuestions } from "./data/social";
 import { workQuestions } from "./data/work";
 import type { Question, Topic } from "./types";
 
 export const topics: Topic[] = [
   {
-    id: "work",
+    id: "finance",
     title: "ตัวตนในการทำงาน",
     description: "ค้นหาสไตล์การทำงานที่แท้จริงของคุณ",
     icon: "briefcase",
   },
   {
-    id: "social",
+    id: "health",
     title: "การเข้าสังคม",
     description: "คุณเป็นคนแบบไหนเมื่ออยู่ในกลุ่มเพื่อน",
     icon: "users",
@@ -24,7 +24,7 @@ export const topics: Topic[] = [
     icon: "heart",
   },
   {
-    id: "leisure",
+    id: "work",
     title: "ไลฟ์สไตล์",
     description: "การใช้เวลาว่างบอกความเป็นคุณ",
     icon: "coffee",
@@ -32,8 +32,9 @@ export const topics: Topic[] = [
 ];
 
 export const questions: Question[] = [
-  ...workQuestions,
-  ...socialQuestions,
+  ...financeQuestions,
+  ...healthQuestions,
   ...loveQuestions,
-  ...leisureQuestions,
+  ...workQuestions
+
 ];
