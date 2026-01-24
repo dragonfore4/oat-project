@@ -15,23 +15,32 @@ export interface Option {
   score: number;
 }
 
-export interface QuizQuestion {
+export interface BaseQuestion {
   id: string;
   topicId: TopicId;
-  type: "question";
   text: string;
+  backgroundImage?: string;
+}
+
+export interface SelectionQuestion extends BaseQuestion {
+  type: "selection";
   options: Option[];
 }
 
-export interface InfoPage {
-  id: string;
-  topicId: TopicId;
+export interface ScaleQuestion extends BaseQuestion {
+  type: "scale";
+  labels?: {
+    start: string;
+    end: string;
+  };
+}
+
+export interface InfoPage extends BaseQuestion {
   type: "info";
-  text: string;
   buttonText?: string;
 }
 
-export type Question = QuizQuestion | InfoPage;
+export type Question = SelectionQuestion | ScaleQuestion | InfoPage;
 
 // 2. โครงสร้างข้อมูลสำหรับ resultData (Raw Content)
 export interface ResultItem {

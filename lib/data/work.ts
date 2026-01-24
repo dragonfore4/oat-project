@@ -1,4 +1,4 @@
-import { createInfo, createQ } from "../helpers";
+import { createInfo, createQ, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
 export const workQuestions: Question[] = [
@@ -8,15 +8,16 @@ export const workQuestions: Question[] = [
     "เมื่อได้รับมอบหมายงานใหม่ที่ยากๆ คุณจะ...",
     "รับด้วยความตื่นเต้น",
     "ขอเวลาศึกษาข้อมูลก่อน",
-    "รู้สึกกังวลและเครียด"
+    "รู้สึกกังวลและเครียด",
+    "https://images.unsplash.com/photo-1768185595109-18aded979f9d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8"
   ),
-  createQ(
+  createScaleQ(
     "w2",
     "work",
-    "สไตล์การทำงานของคุณคือ...",
-    "ทำเร็ว เน้นปริมาณ",
-    "ทำละเอียด เน้นคุณภาพ",
-    "ค่อยๆ ทำตามอารมณ์"
+    "ฉันมักจะตรวจสอบความถูกต้องของงานร้อยเรียบร้อยเสมอ",
+    "disagree",
+    "agree",
+    "https://plus.unsplash.com/premium_photo-1763136099850-f73cacd820fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
   ),
   createQ(
     "w3",

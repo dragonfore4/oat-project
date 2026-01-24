@@ -23,7 +23,7 @@ function QuizContent() {
     // กรองและสุ่มตั้งแต่ตอนกำหนดค่าเริ่มต้น (Initial State)
     const filtered = questions.filter((q) => q.topicId === topicId);
     return filtered.map((q) => {
-      if (q.type === "question") {
+      if (q.type === "selection") {
         return { ...q, options: shuffle(q.options) };
       }
       return q;
@@ -62,7 +62,16 @@ function QuizContent() {
   const currentQuestion = topicQuestions[currentQuestionIndex];
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div
+      className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4 transition-all duration-500"
+      style={{
+        backgroundImage: currentQuestion.backgroundImage
+          ? `url(${currentQuestion.backgroundImage})`
+          : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="mb-8 w-full max-w-2xl">
         <ProgressBar
           current={currentQuestionIndex}
