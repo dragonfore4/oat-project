@@ -7,12 +7,12 @@ export function calculateResult(
 ): PersonalityResult {
   let groupId: GroupId;
 
-  if (totalScore >= 18) {
-    groupId = "chance";
-  } else if (totalScore >= 10) {
+  if (totalScore >= 19) {
+    groupId = "internal";
+  } else if (totalScore >= 14) {
     groupId = "external";
   } else {
-    groupId = "internal";
+    groupId = "chance";
   }
 
   // random 0, 1, 2, 3
