@@ -1,5 +1,6 @@
+"use client";
+
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import type { Option, Question } from "@/lib/types";
 
 interface QuestionCardProps {
@@ -7,90 +8,76 @@ interface QuestionCardProps {
   onAnswer: (option?: Option) => void;
 }
 
+const DEFAULT_POSITIONS = [
+  { top: "40%" }, // ปุ่ม 1
+  { top: "55%" }, // ปุ่ม 2
+  { top: "70%" }  // ปุ่ม 3
+];
+
 export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
   const [sliderValue, setSliderValue] = useState(2);
 
   if (question.type === "info") {
     return (
-      <div className="mx-auto w-full max-w-2xl rounded-3xl border border-orange-100 bg-white/90 p-8 text-center shadow-lg backdrop-blur-sm md:p-12">
-        <h2 className="mb-10 font-bold text-2xl text-stone-800 leading-relaxed">
-          {question.text}
-        </h2>
-        <Button
-          className="min-w-32 rounded-full bg-stone-600 px-8 py-3 text-lg text-white hover:bg-stone-700"
-          onClick={() => onAnswer()}
-          size="lg"
-        >
-          {question.buttonText || "ต่อไป"}
-        </Button>
-      </div>
+        <button 
+            onClick={() => onAnswer()} 
+            className="absolute inset-0 h-full w-full cursor-pointer z-20"
+        />
     );
   }
 
   if (question.type === "scale") {
-    return (
-      <div className="mx-auto w-full max-w-md rounded-3xl border border-orange-100 bg-[#FFFDF5] p-8 shadow-xl">
-        <h2 className="mb-8 text-center font-medium text-stone-900 text-xl leading-relaxed">
-          {question.text}
-        </h2>
+    const topPos = question.sliderTop || "62%";
 
-        <div className="mb-8 px-4">
+   return (
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center w-full h-full">
+        <div className="absolute w-[80%] px-4" style={{ top: topPos }}>
           <input
-            className="h-3 w-full cursor-pointer appearance-none rounded-full bg-orange-200 accent-orange-500"
-            max="3"
-            min="1"
-            onChange={(e) => setSliderValue(Number(e.target.value))}
-            step="1"
             type="range"
+            min="1" max="3" step="1"
             value={sliderValue}
+            onChange={(e) => setSliderValue(Number(e.target.value))}
+            className="w-full h-3 bg-white/50 rounded-lg appearance-none cursor-pointer accent-pink-500 hover:bg-white/80 transition-all"
           />
-          <div className="mt-4 flex justify-between font-medium text-sm text-stone-600">
-            <span>{question.labels?.start || "disagree"}</span>
-            <span>unsure</span>
-            <span>{question.labels?.end || "agree"}</span>
-          </div>
         </div>
-
-        <div className="flex justify-center">
-          <Button
-            className="min-w-32 rounded-full bg-orange-400 px-8 py-2 text-white hover:bg-orange-500"
-            onClick={() => {
-              onAnswer({
-                id: `${question.id}_scale`,
-                text: String(sliderValue),
-                score: sliderValue,
-              });
-            }}
-          >
-            NEXT
-          </Button>
-        </div>
+        
+        <button
+            onClick={() => onAnswer({ id: "scale", text: String(sliderValue), score: sliderValue })}
+            className="absolute bottom-[15%] bg-white text-pink-600 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
+        >
+            ยืนยัน (NEXT)
+        </button>
       </div>
     );
   }
 
-  // Selection type
-  return (
-    <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-8">
-      {/* Question Text Bubble */}
-      <div className="relative rounded-3xl bg-[#FFFDF5]/90 px-8 py-6 text-center shadow-md backdrop-blur-sm">
-        <h2 className="font-bold text-stone-900 text-xl md:text-2xl">
-          {question.text}
-        </h2>
-      </div>
+  const pos1 = question.customConfig?.[0] || DEFAULT_POSITIONS[0];
+  const pos2 = question.customConfig?.[1] || DEFAULT_POSITIONS[1];
+  const pos3 = question.customConfig?.[2] || DEFAULT_POSITIONS[2];
 
-      <div className="flex w-full flex-col gap-4 px-4">
-        {question.options?.map((option) => (
-          <Button
-            className="h-auto w-full justify-center rounded-full border-2 border-orange-100 bg-[#FFFDF5] px-6 py-4 text-center text-lg text-stone-800 shadow-sm transition-all hover:border-orange-300 hover:bg-orange-50"
-            key={option.id}
-            onClick={() => onAnswer(option)}
-            variant="ghost"
-          >
-            {option.text}
-          </Button>
-        ))}
-      </div>
+ return (
+    <div className="absolute inset-0 z-20 flex flex-col w-full h-full">
+      
+      {/* ปุ่มที่ 1 */}
+      <button
+        onClick={() => onAnswer(question.options?.[0])}
+        style={{ top: pos1.top, }} 
+        className="absolute left-0 w-full h-[12%] bg-red-500 opacity-50 transition-opacity"
+      />
+
+      {/* ปุ่มที่ 2 */}
+      <button
+        onClick={() => onAnswer(question.options?.[1])}
+        style={{ top: pos2.top }}
+        className="absolute left-0 w-full h-[12%] bg-green-500 opacity-50 transition-opacity"
+      />
+
+      {/* ปุ่มที่ 3 */}
+      <button
+        onClick={() => onAnswer(question.options?.[2])}
+        style={{ top: pos3.top }}
+        className="absolute left-0 w-full h-[12%] bg-blue-500 opacity-50 transition-opacity"
+      />
     </div>
   );
 }
