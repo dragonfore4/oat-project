@@ -1,47 +1,105 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import { topics } from "@/lib";
+import { useState } from "react";
 
 export default function Home() {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => {
+    if (step < 5) {
+      setStep(step + 1);
+    }
+  };
+
+  const getCurrentImage = () => {
+    switch (step) {
+      case 1:
+        return "/opening/Artboard1.png";
+      case 2:
+        return "/opening/Artboard2.png";
+      case 3:
+        return "/opening/Artboard3.png";
+      case 4:
+        return "/opening/Artboard4.png";
+      case 5:
+        return "/opening/Artboard5.png";
+      default:
+        return "/opening/Artboard1.png";
+    }
+  };
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-linear-to-br from-blue-50 to-indigo-100 p-6">
-      <main className="flex w-full max-w-4xl flex-col items-center text-center">
-        <h1 className="mb-6 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text py-2 font-extrabold text-4xl text-transparent md:text-5xl">
-          ค้นหาตัวตนของคุณ
-        </h1>
+    <main className="relative flex h-dvh w-full items-center justify-center overflow-hidden bg-zinc-900">
+      <div className="absolute inset-0 z-0">
+        <Image
+          alt="Background Atmosphere"
+          className="scale-110 object-cover blur-2xl brightness-[0.4]"
+          fill
+          priority
+          src={getCurrentImage()}
+        />
+      </div>
 
-        <p className="mb-10 max-w-lg text-gray-600 text-lg leading-relaxed md:text-xl">
-          เลือกหัวข้อที่คุณสนใจ เพื่อเริ่มทำแบบทดสอบค้นหาตัวตนที่ซ่อนอยู่ของคุณ
-        </p>
-
-        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2">
-          {topics.map((topic) => (
-            <Link
-              className="group"
-              href={`/quiz?topicId=${topic.id}`}
-              key={topic.id}
-              passHref
-            >
-              <div className="flex h-full transform flex-col items-center rounded-2xl border border-transparent bg-white p-8 text-center shadow-lg transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-3xl text-blue-600">
-                  {/* Simple icon mapping based on topic ID */}
-                  {topic.id === "finance" && "💼"}
-                  {topic.id === "health" && "🗣️"}
-                  {topic.id === "love" && "❤️"}
-                  {topic.id === "work" && "☕"}
-                </div>
-                <h2 className="mb-2 font-bold text-2xl text-gray-800 transition-colors group-hover:text-blue-600">
-                  {topic.title}
-                </h2>
-                <p className="text-gray-500">{topic.description}</p>
-              </div>
-            </Link>
-          ))}
+      <div
+        className="relative z-10 shadow-2xl"
+        style={{
+          aspectRatio: "9/16",
+          height: "min(100dvh, 100vw * 16 / 9)",
+          width: "min(100vw, 100dvh * 9 / 16)",
+        }}
+      >
+        <div className="absolute inset-0">
+          <Image
+            alt="Main Content"
+            className="animate-fade object-cover transition-all"
+            fill
+            key={getCurrentImage()}
+            priority
+            src={getCurrentImage()}
+          />
         </div>
 
-        <div className="mt-12 text-gray-400 text-sm">
-          แต่ละหัวข้อใช้เวลาทำเพียง 1-2 นาที • ไม่มีการเก็บข้อมูลส่วนตัว
+        <div className="absolute inset-0 h-full w-full">
+          {step === 1 && (
+            <button
+              className="absolute bottom-[14%] left-1/2 h-[10%] w-[60%] -translate-x-1/2 cursor-pointer rounded-full bg-red-500 opacity-0"
+              onClick={nextStep}
+              type="button"
+            />
+          )}
+
+          {step >= 2 && step <= 4 && (
+            <button
+              className="absolute inset-0 h-full w-full cursor-pointer"
+              onClick={nextStep}
+              type="button"
+            />
+          )}
+
+          {step === 5 && (
+            <>
+              <Link
+                className="absolute top-[32%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
+                href="quiz?topicId=love"
+              />
+              <Link
+                className="absolute top-[46%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
+                href="quiz?topicId=work"
+              />
+              <Link
+                className="absolute top-[60%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
+                href="quiz?topicId=health"
+              />
+              <Link
+                className="absolute top-[74%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
+                href="quiz?topicId=finance"
+              />
+            </>
+          )}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

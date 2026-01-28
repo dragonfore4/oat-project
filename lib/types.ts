@@ -18,13 +18,13 @@ export interface Option {
 export interface BaseQuestion {
   id: string;
   topicId: TopicId;
-  text: string;
   backgroundImage?: string;
 }
 
 export interface SelectionQuestion extends BaseQuestion {
   type: "selection";
   options: Option[];
+  customConfig?: { top: string }[];
 }
 
 export interface ScaleQuestion extends BaseQuestion {
@@ -33,6 +33,7 @@ export interface ScaleQuestion extends BaseQuestion {
     start: string;
     end: string;
   };
+  sliderTop?: string;
 }
 
 export interface InfoPage extends BaseQuestion {

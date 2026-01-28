@@ -1,71 +1,69 @@
-import { createInfo, createQ } from "../helpers";
+import { createImageQ, createInfo, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
 export const financeQuestions: Question[] = [
-  createQ(
-    "ls1",
+  createInfo("info1", "finance", "/finance/Artboard 2.png"),
+  createInfo("info1", "finance", "/finance/Artboard 3.png"),
+  createImageQ("q3", "finance", "/finance/Artboard 4.png", [
+    { top: "49%" },
+    { top: "64%" },
+    { top: "82%" },
+  ]),
+  createImageQ("q4", "finance", "/finance/Artboard 5.png", [
+    { top: "46%" },
+    { top: "62%" },
+    { top: "79%" },
+  ]),
+  createInfo("info1", "finance", "/finance/Artboard 6.png"),
+  createImageQ("q6", "finance", "/finance/Artboard 7.png", [
+    { top: "36%" },
+    { top: "53%" },
+    { top: "69%" },
+  ]),
+  createInfo("info1", "finance", "/finance/Artboard 8.png"),
+  createScaleQ(
+    "q_scale_1",
     "finance",
-    "ในวันหยุดยาวที่กำลังจะมาถึง คุณวางแผนจะ...",
-    "ออกไปเที่ยวต่างจังหวัด/ต่างประเทศ",
-    "ไปคาเฟ่หรือเดินห้างชิลล์ๆ",
-    "นอนพักผ่อนดูซีรีส์ที่บ้าน"
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/finance/Artboard 9.png",
+    "70%"
   ),
-  createQ(
-    "ls2",
+  createInfo("info1", "finance", "/finance/Artboard 10.png"),
+  createInfo("info1", "finance", "/finance/Artboard 11.png"),
+  createScaleQ(
+    "q_scale_1",
     "finance",
-    "งานอดิเรกที่คุณมักจะทำเป็นประจำคือ...",
-    "เล่นกีฬาหรือกิจกรรมที่ได้ขยับตัว",
-    "เล่นเกมหรือเล่นโซเชียล",
-    "ทำงานคราฟต์ อ่านหนังสือ หรือศิลปะ"
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/finance/Artboard 12.png",
+    "58%"
   ),
-  createQ(
-    "ls3",
+  createInfo("info1", "finance", "/finance/Artboard 13.png"),
+  createInfo("info1", "finance", "/finance/Artboard 14.png"),
+  createImageQ("q14", "finance", "/finance/Artboard 15.png", [
+    { top: "31%" },
+    { top: "47%" },
+    { top: "62%" },
+  ]),
+  createInfo("info1", "finance", "/finance/Artboard 16.png"),
+  createImageQ("q16", "finance", "/finance/Artboard 17.png", [
+    { top: "34%" },
+    { top: "49%" },
+    { top: "63%" },
+  ]),
+  createInfo("info1", "finance", "/finance/Artboard 18.png"),
+  createInfo("info1", "finance", "/finance/Artboard 19.png"),
+  createScaleQ(
+    "q_scale_1",
     "finance",
-    "เวลาเลือกซื้อของใหม่สักชิ้น คุณเน้นอะไร...",
-    "ฟังก์ชันการใช้งานและคุณภาพ",
-    "ความสวยงามและดีไซน์",
-    "ราคาที่คุ้มค่าและประหยัด"
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/finance/Artboard 20.png",
+    "58%"
   ),
-  createInfo("info_ls1", "finance", "ไลฟ์สไตล์สะท้อนตัวตนได้ดีที่สุด มาดูกันต่อครับ"), // หน้า 4
-  createQ(
-    "ls4",
-    "finance",
-    "สไตล์อาหารที่คุณชอบทานบ่อยที่สุดคือ...",
-    "อาหารแนวสุขภาพหรือออร์แกนิก",
-    "อาหารรสจัดจ้านหรือบุฟเฟต์",
-    "อาหารจานด่วนที่กินง่ายๆ"
-  ),
-  createQ(
-    "ls5",
-    "finance",
-    "บรรยากาศแบบไหนที่ทำให้คุณรู้สึกผ่อนคลายที่สุด...",
-    "เสียงคลื่นและลมทะเล",
-    "ความเงียบสงบในห้องส่วนตัว",
-    "แสงสีและเสียงเพลงในเมือง"
-  ),
-  createQ(
-    "ls6",
-    "finance",
-    "คุณมักจะใช้เงินไปกับเรื่องอะไรมากที่สุด...",
-    "การท่องเที่ยวและประสบการณ์",
-    "ของสะสมและเทคโนโลยี",
-    "อาหารและของกินเล่น"
-  ),
-  createInfo("info_ls2", "finance", "อีกแค่ 2 ข้อ จะรู้แล้วว่าไลฟ์สไตล์คุณคือแบบไหน"), // หน้า 8
-  createQ(
-    "ls7",
-    "finance",
-    "ถ้ามีเวลาว่าง 1 ชั่วโมง คุณจะเลือก...",
-    "ออกไปเดินเล่นรับลม",
-    "งีบหลับพักสายตา",
-    "ไถหน้าจอดูอะไรไปเรื่อยเปื่อย"
-  ),
-  createQ(
-    "ls8",
-    "finance",
-    "คุณจำกัดนิยามความสุขของตัวเองว่า...",
-    "การได้ทำตามความฝัน",
-    "การมีสุขภาพกายและใจที่แข็งแรง",
-    "การได้กินของอร่อยและนอนหลับเต็มอิ่ม"
-  ),
+  createInfo("info1", "finance", "/finance/Artboard 21.png"),
 ];

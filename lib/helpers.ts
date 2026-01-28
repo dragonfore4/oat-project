@@ -8,7 +8,7 @@ import type {
 export const createQ = (
   id: string,
   topicId: TopicId,
-  text: string,
+  _text: string,
   opt1: string,
   opt2: string,
   opt3: string,
@@ -17,7 +17,6 @@ export const createQ = (
   id,
   topicId,
   type: "selection",
-  text,
   options: [
     { id: `${id}_1`, text: opt1, score: 1 },
     { id: `${id}_2`, text: opt2, score: 2 },
@@ -29,31 +28,48 @@ export const createQ = (
 export const createScaleQ = (
   id: string,
   topicId: TopicId,
-  text: string,
+  _text: string,
   startLabel = "disagree",
   endLabel = "agree",
-  backgroundImage?: string
+  backgroundImage?: string,
+  sliderTop?: string
 ): ScaleQuestion => ({
   id,
   topicId,
   type: "scale",
-  text,
   labels: { start: startLabel, end: endLabel },
   backgroundImage,
+  sliderTop,
 });
 
 export const createInfo = (
   id: string,
   topicId: TopicId,
-  text: string,
   backgroundImage?: string
 ): InfoPage => ({
   id,
   topicId,
   type: "info",
-  text,
   buttonText: "ไปต่อ",
   backgroundImage,
+});
+
+export const createImageQ = (
+  id: string,
+  topicId: TopicId,
+  imagePath: string,
+  customConfig?: { top: string }[]
+): SelectionQuestion => ({
+  id,
+  topicId,
+  type: "selection",
+  backgroundImage: imagePath,
+  customConfig,
+  options: [
+    { id: "opt1", text: "Option 1", score: 3 },
+    { id: "opt2", text: "Option 2", score: 2 },
+    { id: "opt3", text: "Option 3", score: 1 },
+  ],
 });
 
 export const shuffle = <T>(array: T[]): T[] =>
