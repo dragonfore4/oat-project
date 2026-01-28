@@ -1,15 +1,14 @@
-import { ResultSummary } from "@/components/result-summary";
 import { calculateResult } from "@/lib/scoring";
 import type { PersonalityResult, TopicId } from "@/lib/types";
+import { ResultClient } from "./result-client";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-
-  const scoreParam = (await searchParams).score as string
-  const topicParam = (await searchParams).topicId as string
+  const scoreParam = (await searchParams).score as string;
+  const topicParam = (await searchParams).topicId as string;
 
   let personality: PersonalityResult | null = null;
 
@@ -32,7 +31,6 @@ export default async function Page({
     }
   }
 
-
   if (!personality) {
     return (
       <div className="flex min-h-screen items-center justify-center">
@@ -42,8 +40,10 @@ export default async function Page({
   }
 
   return (
-    <div className="flex max-h-screen min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
-      <ResultSummary personality={personality} />
-    </div>
+    // <div className="flex max-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    //   {/* <ResultSummary personality={personality} /> */}
+    //   <ResultClient personality={personality} />
+    // </div>
+    <ResultClient personality={personality} />
   );
 }
