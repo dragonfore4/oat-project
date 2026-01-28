@@ -25,8 +25,7 @@ export function ResultSummary({ personality, onRestart }: ResultSummaryProps) {
 
       <div className="mb-10">
         <h3 className="mb-4 font-semibold text-gray-700 text-lg">จุดเด่นของคุณ</h3>
-        <div className="flex flex-wrap justify-center gap-3">
-        </div>
+        <div className="flex flex-wrap justify-center gap-3" />
       </div>
 
       <div className="flex flex-col justify-center gap-4 sm:flex-row">

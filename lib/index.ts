@@ -35,6 +35,5 @@ export const questions: Question[] = [
   ...financeQuestions,
   ...healthQuestions,
   ...loveQuestions,
-  ...workQuestions
-
+  ...workQuestions,
 ];

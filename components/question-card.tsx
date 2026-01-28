@@ -11,7 +11,7 @@ interface QuestionCardProps {
 const DEFAULT_POSITIONS = [
   { top: "40%" }, // ปุ่ม 1
   { top: "55%" }, // ปุ่ม 2
-  { top: "70%" }  // ปุ่ม 3
+  { top: "70%" }, // ปุ่ม 3
 ];
 
 export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
@@ -19,33 +19,43 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
 
   if (question.type === "info") {
     return (
-        <button 
-            onClick={() => onAnswer()} 
-            className="absolute inset-0 h-full w-full cursor-pointer z-20"
-        />
+      <button
+        className="absolute inset-0 z-20 h-full w-full cursor-pointer"
+        onClick={() => onAnswer()}
+        type="button"
+      />
     );
   }
 
   if (question.type === "scale") {
     const topPos = question.sliderTop || "62%";
 
-   return (
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center w-full h-full">
+    return (
+      <div className="absolute inset-0 z-20 flex h-full w-full flex-col items-center justify-center">
         <div className="absolute w-[80%] px-4" style={{ top: topPos }}>
           <input
-            type="range"
-            min="1" max="3" step="1"
-            value={sliderValue}
+            className="h-3 w-full cursor-pointer appearance-none rounded-lg bg-white/50 accent-pink-500 transition-all hover:bg-white/80"
+            max="3"
+            min="1"
             onChange={(e) => setSliderValue(Number(e.target.value))}
-            className="w-full h-3 bg-white/50 rounded-lg appearance-none cursor-pointer accent-pink-500 hover:bg-white/80 transition-all"
+            step="1"
+            type="range"
+            value={sliderValue}
           />
         </div>
-        
+
         <button
-            onClick={() => onAnswer({ id: "scale", text: String(sliderValue), score: sliderValue })}
-            className="absolute bottom-[10%] bg-white text-pink-600 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
+          className="absolute bottom-[10%] rounded-full bg-white px-8 py-3 font-bold text-pink-600 shadow-lg transition-transform hover:scale-105"
+          onClick={() =>
+            onAnswer({
+              id: "scale",
+              text: String(sliderValue),
+              score: sliderValue,
+            })
+          }
+          type="button"
         >
-            ยืนยัน (NEXT)
+          ยืนยัน (NEXT)
         </button>
       </div>
     );
@@ -55,28 +65,30 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
   const pos2 = question.customConfig?.[1] || DEFAULT_POSITIONS[1];
   const pos3 = question.customConfig?.[2] || DEFAULT_POSITIONS[2];
 
- return (
-    <div className="absolute inset-0 z-20 flex flex-col w-full h-full">
-      
+  return (
+    <div className="absolute inset-0 z-20 flex h-full w-full flex-col">
       {/* ปุ่มที่ 1 */}
       <button
+        className="absolute left-0 h-[12%] w-full bg-red-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[0])}
-        style={{ top: pos1.top, }} 
-        className="absolute left-0 w-full h-[12%] bg-red-500 opacity-0 transition-opacity"
+        style={{ top: pos1.top }}
+        type="button"
       />
 
       {/* ปุ่มที่ 2 */}
       <button
+        className="absolute left-0 h-[12%] w-full bg-green-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[1])}
         style={{ top: pos2.top }}
-        className="absolute left-0 w-full h-[12%] bg-green-500 opacity-0 transition-opacity"
+        type="button"
       />
 
       {/* ปุ่มที่ 3 */}
       <button
+        className="absolute left-0 h-[12%] w-full bg-blue-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[2])}
         style={{ top: pos3.top }}
-        className="absolute left-0 w-full h-[12%] bg-blue-500 opacity-0 transition-opacity"
+        type="button"
       />
     </div>
   );

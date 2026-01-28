@@ -8,7 +8,7 @@ import type {
 export const createQ = (
   id: string,
   topicId: TopicId,
-  text: string,
+  _text: string,
   opt1: string,
   opt2: string,
   opt3: string,
@@ -28,7 +28,7 @@ export const createQ = (
 export const createScaleQ = (
   id: string,
   topicId: TopicId,
-  text: string,
+  _text: string,
   startLabel = "disagree",
   endLabel = "agree",
   backgroundImage?: string,
@@ -39,7 +39,7 @@ export const createScaleQ = (
   type: "scale",
   labels: { start: startLabel, end: endLabel },
   backgroundImage,
-  sliderTop
+  sliderTop,
 });
 
 export const createInfo = (
@@ -58,7 +58,7 @@ export const createImageQ = (
   id: string,
   topicId: TopicId,
   imagePath: string,
-  customConfig?: { top: string; }[]
+  customConfig?: { top: string }[]
 ): SelectionQuestion => ({
   id,
   topicId,

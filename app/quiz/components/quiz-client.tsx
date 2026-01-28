@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ProgressBar } from "@/components/progress-bar";
 import { QuestionCard } from "@/components/question-card";
 import type { Option, Question } from "@/lib/types";
@@ -33,60 +33,61 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
       router.push(`/result?topicId=${topicId}&score=${currentTotalScore}`);
     }
   };
-  
+
   useEffect(() => {
     console.log("Current total score:", totalScore);
   });
 
-  if (!currentQuestion) return <div>Loading...</div>;
+  if (!currentQuestion) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <main className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-zinc-900">
+    <main className="relative flex h-dvh w-full items-center justify-center overflow-hidden bg-zinc-900">
       <div className="absolute inset-0 z-0">
-          {currentQuestion.backgroundImage && (
-            <Image 
-              src={currentQuestion.backgroundImage} 
-              alt="Background Effect" 
-              fill 
-              className="object-cover blur-2xl brightness-[0.4] scale-110"
-              priority 
-            />
-          )}
+        {currentQuestion.backgroundImage && (
+          <Image
+            alt="Background Effect"
+            className="scale-110 object-cover blur-2xl brightness-[0.4]"
+            fill
+            priority
+            src={currentQuestion.backgroundImage}
+          />
+        )}
       </div>
 
-      <div 
-        className="relative z-10 shadow-2xl bg-black overflow-hidden"
+      <div
+        className="relative z-10 overflow-hidden bg-black shadow-2xl"
         style={{
-          aspectRatio: '9/16',
-          height: 'min(100dvh, 100vw * 16 / 9)',
-          width: 'min(100vw, 100dvh * 9 / 16)'
+          aspectRatio: "9/16",
+          height: "min(100dvh, 100vw * 16 / 9)",
+          width: "min(100vw, 100dvh * 9 / 16)",
         }}
       >
         <div className="absolute inset-0 z-0">
-           {currentQuestion.backgroundImage && (
-             <Image 
-               src={currentQuestion.backgroundImage} 
-               alt="Question Content" 
-               fill 
-               className="object-cover" 
-               priority 
-             />
-           )}
+          {currentQuestion.backgroundImage && (
+            <Image
+              alt="Question Content"
+              className="object-cover"
+              fill
+              priority
+              src={currentQuestion.backgroundImage}
+            />
+          )}
         </div>
 
-        <div className="absolute top-0 left-0 w-full z-30 px-6 pt-6">
+        <div className="absolute top-0 left-0 z-30 w-full px-6 pt-6">
           <ProgressBar
             current={currentQuestionIndex}
             total={topicQuestions.length}
           />
         </div>
 
-        <QuestionCard 
-            key={currentQuestion.id}
-            question={currentQuestion} 
-            onAnswer={handleAnswer} 
+        <QuestionCard
+          key={currentQuestion.id}
+          onAnswer={handleAnswer}
+          question={currentQuestion}
         />
-
       </div>
     </main>
   );

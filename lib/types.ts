@@ -24,7 +24,7 @@ export interface BaseQuestion {
 export interface SelectionQuestion extends BaseQuestion {
   type: "selection";
   options: Option[];
-  customConfig?: { top: string;}[];
+  customConfig?: { top: string }[];
 }
 
 export interface ScaleQuestion extends BaseQuestion {

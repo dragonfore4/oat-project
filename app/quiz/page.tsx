@@ -19,7 +19,7 @@ export default async function QuizPage({
   if (filtered.length === 0) {
     redirect("/");
   }
-  const initialQuestions = filtered; 
+  const initialQuestions = filtered;
 
   return <QuizClient initialQuestions={initialQuestions} topicId={topicId} />;
 }
