@@ -16,7 +16,7 @@ export function ResultClient({ personality }: ResultClientProps) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+    <div className="flex max-h-screen min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
       <ResultSummary onRestart={handleRestart} personality={personality} />
     </div>
   );
