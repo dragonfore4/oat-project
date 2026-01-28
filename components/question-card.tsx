@@ -43,7 +43,7 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
         
         <button
             onClick={() => onAnswer({ id: "scale", text: String(sliderValue), score: sliderValue })}
-            className="absolute bottom-[15%] bg-white text-pink-600 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
+            className="absolute bottom-[10%] bg-white text-pink-600 px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform"
         >
             ยืนยัน (NEXT)
         </button>

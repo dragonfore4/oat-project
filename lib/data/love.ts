@@ -1,75 +1,102 @@
-import { createInfo, createQ } from "../helpers";
+import { createImageQ, createInfo, createQ, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
 export const loveQuestions: Question[] = [
-  createQ(
-    "s1",
+  createInfo(
+    "info1",
     "love",
-    "เมื่อต้องไปงานปาร์ตี้ที่คุณแทบไม่รู้จักใครเลย...",
-    "เดินเข้าไปทำความรู้จักคนใหม่ๆ",
-    "เกาะกลุ่มอยู่กับเพื่อนที่พาไป",
-    "หาที่นั่งเงียบๆ สังเกตการณ์"
+    "/love/Artboard 7.png"
   ),
-  createQ(
-    "s2",
+  createImageQ("q2", "love", "/love/Artboard 8.png", [
+      { top: "55%"},
+      { top: "68%" },
+      { top: "83%" } 
+  ]),
+  createInfo(
+    "info1",
     "love",
-    "เวลาอยู่ในวงสนทนา คุณมักจะเป็น...",
-    "คนที่เริ่มเปิดประเด็นพูดคุย",
-    "คนคอยเสริมและรับฟัง",
-    "คนที่เน้นฟังอย่างเดียว"
+    "/love/Artboard 9.png"
   ),
-  createQ(
-    "s3",
+  createImageQ("q4", "love", "/love/Artboard 10.png", [
+      { top: "41%"},
+      { top: "57%" },
+      { top: "76%" } 
+  ]),
+  createInfo(
+    "info1",
     "love",
-    "ถ้าเพื่อนชวนไปเที่ยวในวันที่คุณอยากอยู่บ้าน...",
-    "ไปอยู่ดี เพราะไม่อยากพลาด",
-    "ดูก่อนว่าใครไปบ้าง",
-    "ปฏิเสธอย่างนุ่มนวลเพื่อพักผ่อน"
+    "/love/Artboard 11.png"
+  ),
+  createImageQ("q6", "love", "/love/Artboard 12.png", [
+      { top: "43%"},
+      { top: "58%" },
+      { top: "74%" } 
+  ]),
+  createInfo(
+    "info1",
+    "love",
+    "/love/Artboard 13.png"
+  ),
+  createScaleQ(
+    "q_scale_1",
+    "love",
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/love/Artboard 14.png",
+    "52%"
   ),
   createInfo(
-    "info_s1",
+    "info1",
     "love",
-    "ครึ่งทางแล้ว! คุณเริ่มเห็นภาพ 'พลังงานทางสังคม' ของตัวเองหรือยัง?"
-  ), // หน้า 4
-  createQ(
-    "s4",
-    "love",
-    "เวลาเพื่อนมีปัญหาและมาปรึกษา คุณจะ...",
-    "ให้คำแนะนำและทางออกชัดเจน",
-    "รับฟังและให้กำลังใจ",
-    "อยู่ข้างๆ แม้ไม่รู้จะพูดอะไร"
+    "/love/Artboard 15.png"
   ),
-  createQ(
-    "s5",
+  createScaleQ(
+    "q_scale_2",
     "love",
-    "คุณรู้สึกอย่างไรกับการเป็นจุดสนใจในที่สาธารณะ...",
-    "ชอบและรู้สึกมั่นใจ",
-    "ทำตัวไม่ถูกเล็กน้อย",
-    "อยากหายตัวไปทันที"
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/love/Artboard 16.png",
+    "54%"
   ),
-  createQ(
-    "s6",
+  createInfo(
+    "info1",
     "love",
-    "การสื่อสารแบบไหนที่คุณถนัดที่สุด...",
-    "การพูดคุยต่อหน้า",
-    "การพิมพ์แชทหรือส่งข้อความ",
-    "การเขียนอีเมลหรือจดหมาย"
+    "/love/Artboard 17.png"
   ),
-  createInfo("info_s2", "love", "อีก 2 ข้อสุดท้าย จะรู้แล้วว่าคุณเป็นใครในกลุ่มเพื่อน"), // หน้า 8
-  createQ(
-    "s7",
+  createImageQ("q14", "love", "/love/Artboard 18.png", [
+      { top: "60%"},
+      { top: "72%" },
+      { top: "84%" } 
+  ]),
+  createInfo(
+    "info1",
     "love",
-    "เมื่อมีความขัดแย้งในกลุ่มเพื่อน คุณมักจะ...",
-    "เคลียร์ให้จบตรงนั้น",
-    "เป็นกาวใจคอยไกล่เกลี่ย",
-    "ปลีกตัวออกมาไม่ยุ่งเกี่ยว"
+    "/love/Artboard 19.png"
   ),
-  createQ(
-    "s8",
+  createImageQ("q14", "love", "/love/Artboard 20.png", [
+      { top: "39%"},
+      { top: "54%" },
+      { top: "70%" } 
+  ]),
+  createInfo(
+    "info1",
     "love",
-    "นิยามคำว่า 'เพื่อนที่ดี' สำหรับคุณคือ...",
-    "คนที่ไปไหนไปกันตลอด",
-    "คนที่เข้าใจและยอมรับเรา",
-    "คนที่อยู่ด้วยแล้วสบายใจ"
+    "/love/Artboard 21.png"
+  ),
+  createScaleQ(
+    "q_scale_3",
+    "love",
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/love/Artboard 22.png",
+    "72%"
+  ),
+  createInfo(
+    "info1",
+    "love",
+    "/love/Artboard 23.png"
   ),
 ];
