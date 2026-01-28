@@ -53,8 +53,9 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             alt="Main Content"
-            className="object-cover"
+            className="animate-fade object-cover transition-all"
             fill
+            key={getCurrentImage()}
             priority
             src={getCurrentImage()}
           />

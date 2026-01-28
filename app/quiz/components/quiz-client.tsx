@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ProgressBar } from "@/components/progress-bar";
 import { QuestionCard } from "@/components/question-card";
 import type { Option, Question } from "@/lib/types";
 
@@ -48,8 +47,9 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
         {currentQuestion.backgroundImage && (
           <Image
             alt="Background Effect"
-            className="scale-110 object-cover blur-2xl brightness-[0.4]"
+            className="scale-110 animate-fade object-cover blur-2xl brightness-[0.4]"
             fill
+            key={currentQuestion.backgroundImage}
             priority
             src={currentQuestion.backgroundImage}
           />
@@ -68,19 +68,13 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
           {currentQuestion.backgroundImage && (
             <Image
               alt="Question Content"
-              className="object-cover"
+              className="animate-fade object-cover transition-all"
               fill
+              key={currentQuestion.backgroundImage}
               priority
               src={currentQuestion.backgroundImage}
             />
           )}
-        </div>
-
-        <div className="absolute top-0 left-0 z-30 w-full px-6 pt-6">
-          <ProgressBar
-            current={currentQuestionIndex}
-            total={topicQuestions.length}
-          />
         </div>
 
         <QuestionCard
