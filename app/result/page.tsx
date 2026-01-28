@@ -1,17 +1,15 @@
-"use client";
-
-import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import { ResultSummary } from "@/components/result-summary";
 import { calculateResult } from "@/lib/scoring";
 import type { PersonalityResult, TopicId } from "@/lib/types";
 
-function ResultContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
 
-  const scoreParam = searchParams.get("score");
-  const topicParam = searchParams.get("topicId");
+  const scoreParam = (await searchParams).score as string
+  const topicParam = (await searchParams).topicId as string
 
   let personality: PersonalityResult | null = null;
 
@@ -24,19 +22,16 @@ function ResultContent() {
   ) {
     try {
       const score = Number.parseInt(scoreParam, 10);
-      console.log(score)
+      console.log(score);
 
       // 2. ใช้ "as TopicId" เพื่อยืนยันกับ TypeScript
       personality = calculateResult(topicParam as TopicId, score);
-      console.log("personality:", personality)
+      console.log("personality:", personality);
     } catch (e) {
       console.error("Error calculating result:", e);
     }
   }
 
-  const handleRestart = () => {
-    router.push("/"); // Go back to topic selection
-  };
 
   if (!personality) {
     return (
@@ -47,16 +42,8 @@ function ResultContent() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
-      <ResultSummary onRestart={handleRestart} personality={personality} />
+    <div className="flex max-h-screen min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
+      <ResultSummary personality={personality} />
     </div>
-  );
-}
-
-export default function ResultPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ResultContent />
-    </Suspense>
   );
 }
