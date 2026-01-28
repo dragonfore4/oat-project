@@ -7,6 +7,8 @@ import type { PersonalityResult } from "@/lib/types";
 interface ResultClientProps {
   personality: PersonalityResult;
 }
+const CLOUDFLARE_IMAGE_URL =
+  "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev";
 
 export function ResultClient({ personality }: ResultClientProps) {
   const router = useRouter();
@@ -23,12 +25,12 @@ export function ResultClient({ personality }: ResultClientProps) {
           className="scale-110 object-cover blur-2xl brightness-[0.4]"
           fill
           priority
-          src={`/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
+          src={`${CLOUDFLARE_IMAGE_URL}/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
         />
       </div>
 
       <div
-        className="relative z-10 overflow-hidden bg-red-200 shadow-2xl"
+        className="relative z-10 overflow-hidden shadow-2xl"
         style={{
           aspectRatio: "9/16",
           height: "min(100dvh, 100vw * 16 / 9)",
@@ -42,7 +44,7 @@ export function ResultClient({ personality }: ResultClientProps) {
             fill
             onClick={handleClick}
             priority
-            src={`/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
+            src={`${CLOUDFLARE_IMAGE_URL}/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
           />
         </div>
       </div>

@@ -16,17 +16,18 @@ export default function Home() {
   const getCurrentImage = () => {
     switch (step) {
       case 1:
-        return "/opening/Artboard1.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png";
+
       case 2:
-        return "/opening/Artboard2.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard2.png";
       case 3:
-        return "/opening/Artboard3.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard3.png";
       case 4:
-        return "/opening/Artboard4.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard4.png";
       case 5:
-        return "/opening/Artboard5.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard5.png";
       default:
-        return "/opening/Artboard1.png";
+        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png";
     }
   };
 

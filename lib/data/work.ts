@@ -1,66 +1,70 @@
 import { createImageQ, createInfo, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
+const BASEURL = "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev";
+
+const f = (file: string) => `${BASEURL}/work/${file}`;
+
 export const workQuestions: Question[] = [
-  createInfo("info1", "work", "/work/Artboard 1.png"),
-  createImageQ("q2", "work", "/work/Artboard 2.png", [
+  createInfo("info1", "work", f("Artboard 1.png")),
+  createImageQ("q2", "work", f("Artboard 2.png"), [
     { top: "42%" },
     { top: "58%" },
     { top: "75%" },
   ]),
-  createInfo("info1", "work", "/work/Artboard 3.png"),
-  createImageQ("q4", "work", "/work/Artboard 4.png", [
+  createInfo("info1", "work", f("Artboard 3.png")),
+  createImageQ("q4", "work", f("Artboard 4.png"), [
     { top: "41%" },
     { top: "57%" },
     { top: "74%" },
   ]),
-  createInfo("info1", "work", "/work/Artboard 5.png"),
-  createImageQ("q6", "work", "/work/Artboard 6.png", [
+  createInfo("info1", "work", f("Artboard 5.png")),
+  createImageQ("q6", "work", f("Artboard 6.png"), [
     { top: "37%" },
     { top: "54%" },
     { top: "70%" },
   ]),
-  createInfo("info1", "work", "/work/Artboard 7.png"),
-  createImageQ("q8", "work", "/work/Artboard 8.png", [
+  createInfo("info1", "work", f("Artboard 7.png")),
+  createImageQ("q8", "work", f("Artboard 8.png"), [
     { top: "38%" },
     { top: "54%" },
     { top: "71%" },
   ]),
-  createInfo("info1", "work", "/work/Artboard 9.png"),
+  createInfo("info1", "work", f("Artboard 9.png")),
   createScaleQ(
     "q_scale_1",
     "work",
     "คำถาม...",
     "disagree",
     "agree",
-    "/work/Artboard 10.png",
-    "56%"
+    f("Artboard 10.png"),
+    "56%",
   ),
-  createInfo("info1", "work", "/work/Artboard 11.png"),
+  createInfo("info1", "work", f("Artboard 11.png")),
   createScaleQ(
     "q_scale_2",
     "work",
     "คำถาม...",
     "disagree",
     "agree",
-    "/work/Artboard 12.png",
-    "54%"
+    f("Artboard 12.png"),
+    "54%",
   ),
-  createInfo("info1", "work", "/work/Artboard 13.png"),
-  createImageQ("q14", "work", "/work/Artboard 14.png", [
+  createInfo("info1", "work", f("Artboard 13.png")),
+  createImageQ("q14", "work", f("Artboard 14.png"), [
     { top: "34%" },
     { top: "50%" },
     { top: "67%" },
   ]),
-  createInfo("info1", "work", "/work/Artboard 15.png"),
+  createInfo("info1", "work", f("Artboard 15.png")),
   createScaleQ(
     "q_scale_3",
     "work",
     "คำถาม...",
     "disagree",
     "agree",
-    "/work/Artboard 16.png",
-    "52%"
+    f("Artboard 16.png"),
+    "52%",
   ),
-  createInfo("info1", "work", "/work/Artboard 17.png"),
+  createInfo("info1", "work", f("Artboard 17.png")),
 ];
