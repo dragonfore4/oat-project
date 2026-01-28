@@ -62,21 +62,21 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
       <button
         onClick={() => onAnswer(question.options?.[0])}
         style={{ top: pos1.top, }} 
-        className="absolute left-0 w-full h-[12%] bg-red-500 opacity-50 transition-opacity"
+        className="absolute left-0 w-full h-[12%] bg-red-500 opacity-0 transition-opacity"
       />
 
       {/* ปุ่มที่ 2 */}
       <button
         onClick={() => onAnswer(question.options?.[1])}
         style={{ top: pos2.top }}
-        className="absolute left-0 w-full h-[12%] bg-green-500 opacity-50 transition-opacity"
+        className="absolute left-0 w-full h-[12%] bg-green-500 opacity-0 transition-opacity"
       />
 
       {/* ปุ่มที่ 3 */}
       <button
         onClick={() => onAnswer(question.options?.[2])}
         style={{ top: pos3.top }}
-        className="absolute left-0 w-full h-[12%] bg-blue-500 opacity-50 transition-opacity"
+        className="absolute left-0 w-full h-[12%] bg-blue-500 opacity-0 transition-opacity"
       />
     </div>
   );

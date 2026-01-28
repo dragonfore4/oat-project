@@ -1,71 +1,117 @@
-import { createInfo, createQ } from "../helpers";
+import { createImageQ, createInfo, createQ, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
 export const healthQuestions: Question[] = [
-  createQ(
-    "l1",
+  createInfo(
+    "info1",
     "health",
-    "วิธีที่คุณเลือกแสดงความรักบ่อยที่สุดคือ...",
-    "การดูแลเอาใจใส่ (Service)",
-    "การให้ของขวัญหรือสิ่งของ",
-    "การใช้เวลาร่วมกัน (Quality Time)"
+    "/health/Artboard 2.png"
   ),
-  createQ(
-    "l2",
+  createInfo(
+    "info1",
     "health",
-    "เมื่อเริ่มชอบใครสักคน คุณมักจะ...",
-    "รุกจีบทันทีให้เขารู้",
-    "เนียนๆ เข้าไปเป็นเพื่อนก่อน",
-    "แอบมองอยู่ห่างๆ ไม่กล้าทัก"
+    "/health/Artboard 3.png"
   ),
-  createQ(
-    "l3",
+  createInfo(
+    "info1",
     "health",
-    "สเปคที่คุณมักจะพ่ายแพ้ทางให้เสมอคือ...",
-    "คนที่เก่งและมีความเป็นผู้นำ",
-    "คนที่ใจดีและอบอุ่น",
-    "คนที่ดูเท่และลึกลับ"
+    "/health/Artboard 4.png"
   ),
-  createInfo("info_l1", "health", "เรื่องหัวใจไม่มีถูกผิด... มาต่อกันที่ส่วนที่เหลือครับ"), // หน้า 4
-  createQ(
-    "l4",
+  createImageQ("q4", "health", "/health/Artboard 5.png", [
+      { top: "35%"},
+      { top: "51%" },
+      { top: "67%" } 
+  ]),
+  createInfo(
+    "info1",
     "health",
-    "เวลาทะเลาะกับคนรัก คุณมักจะ...",
-    "พูดตรงๆ เพื่อแก้ปัญหา",
-    "รอให้อารมณ์เย็นแล้วค่อยคุย",
-    "เงียบใส่จนกว่าเขาจะมาง้อ"
+    "/health/Artboard 6.png"
   ),
-  createQ(
-    "l5",
+  createImageQ("q6", "health", "/health/Artboard 7.png", [
+      { top: "34%"},
+      { top: "50%" },
+      { top: "65%" } 
+  ]),
+  createInfo(
+    "info1",
     "health",
-    "ความสัมพันธ์ที่สมบูรณ์แบบสำหรับคุณคือ...",
-    "การเติบโตและสำเร็จไปด้วยกัน",
-    "การเป็นพื้นที่ปลอดภัยให้กัน",
-    "การมีชีวิตที่ตื่นเต้นไม่น่าเบื่อ"
+    "/health/Artboard 8.png"
   ),
-  createQ(
-    "l6",
+  createInfo(
+    "info1",
     "health",
-    "คุณให้ความสำคัญกับเรื่อง 'พื้นที่ส่วนตัว' แค่ไหน...",
-    "แบ่งแยกชัดเจนต้องมีเวลาให้ตัวเอง",
-    "มีบ้างแต่ต้องทำกิจกรรมด้วยกันบ่อยๆ",
-    "ตัวติดกันตลอดเวลาได้ยิ่งดี"
+    "/health/Artboard 9.png"
   ),
-  createInfo("info_l2", "health", "ใกล้ถึงบทสรุปของหัวใจคุณแล้ว..."), // หน้า 8
-  createQ(
-    "l7",
+   createScaleQ(
+    "q_scale_1",
     "health",
-    "ถ้าต้องเลือกระหว่าง 'คนที่เรารัก' กับ 'คนที่รักเรา'...",
-    "เลือกคนที่เรารัก",
-    "เลือกคนที่รักเรา",
-    "เลือกคนที่พอดีกับเราทั้งคู่"
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/health/Artboard 10.png",
+    "54%"
   ),
-  createQ(
-    "l8",
+  createInfo(
+    "info1",
     "health",
-    "คุณมองอนาคตความรักไว้แบบไหน...",
-    "สร้างครอบครัวที่มั่นคง",
-    "เป็นคู่คิดที่สนับสนุนกัน",
-    "ใช้ชีวิตอิสระและมีความสุขไปเรื่อยๆ"
+    "/health/Artboard 11.png"
+  ),
+  createImageQ("q11", "health", "/health/Artboard 12.png", [
+      { top: "31%"},
+      { top: "48%" },
+      { top: "65%" } 
+  ]),
+  createInfo(
+    "info1",
+    "health",
+    "/health/Artboard 13.png"
+  ),
+  createImageQ("q13", "health", "/health/Artboard 14.png", [
+      { top: "30%"},
+      { top: "45%" },
+      { top: "60%" } 
+  ]),
+  createInfo(
+    "info1",
+    "health",
+    "/health/Artboard 15.png"
+  ),
+  createScaleQ(
+    "q_scale_2",
+    "health",
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/health/Artboard 16.png",
+    "52%"
+  ),
+  createInfo(
+    "info1",
+    "health",
+    "/health/Artboard 17.png"
+  ),
+  createImageQ("q17", "health", "/health/Artboard 18.png", [
+      { top: "37%"},
+      { top: "53%" },
+      { top: "69%" } 
+  ]),
+  createInfo(
+    "info1",
+    "health",
+    "/health/Artboard 19.png"
+  ),
+    createScaleQ(
+    "q_scale_3",
+    "health",
+    "คำถาม...",
+    "disagree",
+    "agree",
+    "/health/Artboard 20.png",
+    "55%"
+  ),
+    createInfo(
+    "info1",
+    "health",
+    "/health/Artboard 21.png"
   ),
 ];
