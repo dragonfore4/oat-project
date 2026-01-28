@@ -52,6 +52,7 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
             key={currentQuestion.backgroundImage}
             priority
             src={currentQuestion.backgroundImage}
+            unoptimized={true}
           />
         )}
       </div>
@@ -73,6 +74,7 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
               key={currentQuestion.backgroundImage}
               priority
               src={currentQuestion.backgroundImage}
+              unoptimized={true}
             />
           )}
         </div>

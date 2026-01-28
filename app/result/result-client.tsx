@@ -25,6 +25,7 @@ export function ResultClient({ personality }: ResultClientProps) {
           fill
           priority
           src={`${CLOUDFLARE_R2_URL}/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
+          unoptimized={true}
         />
       </div>
 
@@ -44,6 +45,7 @@ export function ResultClient({ personality }: ResultClientProps) {
             onClick={handleClick}
             priority
             src={`${CLOUDFLARE_R2_URL}/ending/${personality.topicId}/${personality.groupId}${personality.variantId}.png`}
+            unoptimized={true}
           />
         </div>
       </div>

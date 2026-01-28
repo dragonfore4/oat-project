@@ -42,6 +42,7 @@ export default function Home() {
           fill
           priority
           src={getCurrentImage()}
+          unoptimized={true}
         />
       </div>
 
@@ -61,6 +62,7 @@ export default function Home() {
             key={getCurrentImage()}
             priority
             src={getCurrentImage()}
+            unoptimized={true}
           />
         </div>
 
