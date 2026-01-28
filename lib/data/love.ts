@@ -1,9 +1,9 @@
 import { createImageQ, createInfo, createScaleQ } from "../helpers";
 import type { Question } from "../types";
 
-const BASEURL = "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev";
+const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
-const f = (file: string) => `${BASEURL}/love/${file}`;
+const f = (file: string) => `${CLOUDFLARE_R2_URL}/love/${file}`;
 
 export const loveQuestions: Question[] = [
   createInfo("info1", "love", f("Artboard 7.png")),

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev",
+        hostname: "oat-project-img.sirasith.net",
         port: "",
         pathname: "/**", // อนุญาตทุกโฟลเดอร์ใน R2 นี้
       },

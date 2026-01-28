@@ -8,10 +8,12 @@ const ibmPlexSans = IBM_Plex_Sans_Thai({
 });
 
 // ดึง Base URL จาก Environment Variable (แนะนำ)
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://oat-project.sirasith.net";
+const PROJECT_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://oat-project.sirasith.net";
+const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(PROJECT_URL),
   title: {
     default: "cardcantdecide4you",
     template: "%s | cardcantdecide4you",
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "ชื่อเว็บไซต์ของคุณ",
     images: [
       {
-        url: "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png", // จะถูกนำไปต่อท้าย metadataBase อัตโนมัติ
+        url: `${CLOUDFLARE_R2_URL}/opening/Artboard1.png`, // จะถูกนำไปต่อท้าย metadataBase อัตโนมัติ
         width: 1200,
         height: 630,
         alt: "Preview ของเว็บไซต์",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ชื่อเว็บไซต์ของคุณ",
     description: "คำอธิบายสำหรับการแชร์ลง X",
-    images: ["https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png"],
+    images: [`${CLOUDFLARE_R2_URL}/opening/Artboard1.png`],
   },
 };
 
@@ -48,9 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className={`${ibmPlexSans.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`${ibmPlexSans.className} antialiased`}>{children}</body>
     </html>
   );
 }

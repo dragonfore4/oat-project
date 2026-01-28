@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
+
 export default function Home() {
   const [step, setStep] = useState(1);
 
@@ -16,18 +18,18 @@ export default function Home() {
   const getCurrentImage = () => {
     switch (step) {
       case 1:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard1.png`;
 
       case 2:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard2.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard2.png`;
       case 3:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard3.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard3.png`;
       case 4:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard4.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard4.png`;
       case 5:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard5.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard5.png`;
       default:
-        return "https://pub-89a7d3afd9574669a02c5f4fce069c51.r2.dev/opening/Artboard1.png";
+        return `${CLOUDFLARE_R2_URL}/opening/Artboard1.png`;
     }
   };
 
