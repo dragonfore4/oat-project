@@ -2,12 +2,30 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
 export default function Home() {
   const [step, setStep] = useState(1);
+
+  useEffect(() => {
+    // รวม URL ของทุก Artboard ที่ต้องใช้ในหน้านี้
+    const imagesToPreload = [
+      `${CLOUDFLARE_R2_URL}/opening/Artboard1.png`,
+      `${CLOUDFLARE_R2_URL}/opening/Artboard2.png`,
+      `${CLOUDFLARE_R2_URL}/opening/Artboard3.png`,
+      `${CLOUDFLARE_R2_URL}/opening/Artboard4.png`,
+      `${CLOUDFLARE_R2_URL}/opening/Artboard5.png`,
+    ];
+
+    for (const url of imagesToPreload) {
+      const img = new window.Image();
+      img.src = url;
+    }
+
+    console.log("All opening images preloaded!");
+  }, []); // [] ว่างๆ คือทำครั้งเดียวตอนโหลดหน้าเว็บ
 
   const nextStep = () => {
     if (step < 5) {
@@ -19,7 +37,6 @@ export default function Home() {
     switch (step) {
       case 1:
         return `${CLOUDFLARE_R2_URL}/opening/Artboard1.png`;
-
       case 2:
         return `${CLOUDFLARE_R2_URL}/opening/Artboard2.png`;
       case 3:

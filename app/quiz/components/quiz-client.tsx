@@ -34,8 +34,16 @@ export function QuizClient({ initialQuestions, topicId }: QuizClientProps) {
   };
 
   useEffect(() => {
-    console.log("Current total score:", totalScore);
-  });
+    const imageUrls = initialQuestions.map((q) => q.backgroundImage).filter((url): url is string => !!url);
+
+
+    for (const url of imageUrls) {
+      const img = new window.Image();
+      img.src = url;
+    }
+
+  }, [initialQuestions]);
+  console.log("Current total score:", totalScore);
 
   if (!currentQuestion) {
     return <div>Loading...</div>;
