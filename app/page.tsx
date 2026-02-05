@@ -1,8 +1,10 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
@@ -26,6 +28,12 @@ export default function Home() {
 
     console.log("All opening images preloaded!");
   }, []); // [] ว่างๆ คือทำครั้งเดียวตอนโหลดหน้าเว็บ
+
+  const handleBack = () => {
+    if (step > 1) {
+      setStep(() => step - 1);
+    }
+  };
 
   const nextStep = () => {
     if (step < 5) {
@@ -71,6 +79,16 @@ export default function Home() {
           width: "min(100vw, 100dvh * 9 / 16)",
         }}
       >
+        {step > 1 && (
+          <Button
+            className="absolute top-4 left-4 z-50 rounded-full bg-black/20 text-white hover:bg-black/40"
+            onClick={handleBack}
+            size="icon"
+            variant="ghost"
+          >
+            <ArrowLeft className="h-6 w-6" />
+          </Button>
+        )}
         <div className="absolute inset-0">
           <Image
             alt="Main Content"
