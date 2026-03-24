@@ -1,4 +1,3 @@
-import { resultData } from "./data/result";
 import type { GroupId, PersonalityResult, TopicId } from "./types";
 
 export function calculateResult(
@@ -17,7 +16,6 @@ export function calculateResult(
 
   // random 0, 1, 2, 3
   const randomIndex = Math.floor(Math.random() * 4);
-  const selectedResult = resultData[topicId][groupId][randomIndex];
   return {
     topicId,
     groupId,
