@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { IBM_Plex_Sans_Thai } from "next/font/google";
+import BackgroundMusic from "@/components/background-music";
 import { CLOUDFLARE_R2_URL } from "@/lib/types";
 
 const ibmPlexSans = IBM_Plex_Sans_Thai({
@@ -50,7 +51,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className={`${ibmPlexSans.className} antialiased`}>{children}</body>
+      <body className={`${ibmPlexSans.className} antialiased`}>
+        <BackgroundMusic />
+        {children}
+      </body>
     </html>
   );
 }

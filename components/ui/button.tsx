@@ -4,6 +4,8 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+const DEFAULT_BUTTON_SOUND_EFFECT_SRC = "/click.mp3";
+
 const buttonVariants = cva(
   "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium text-sm outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
@@ -41,12 +43,32 @@ function Button({
   variant = "default",
   size = "default",
   asChild = false,
+  soundEffectSrc,
+  onClick,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    soundEffectSrc?: string;
   }) {
   const Comp = asChild ? Slot : "button";
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const effectSrc = soundEffectSrc ?? DEFAULT_BUTTON_SOUND_EFFECT_SRC;
+
+    if (effectSrc) {
+      const audio = new Audio(effectSrc);
+      audio.volume = 0.5;
+      const playPromise = audio.play();
+      if (playPromise) {
+        playPromise.catch((error) => {
+          console.warn("Opening page sound effect playback failed", error);
+        });
+      }
+    }
+
+    onClick?.(event);
+  };
 
   return (
     <Comp
@@ -54,6 +76,7 @@ function Button({
       data-size={size}
       data-slot="button"
       data-variant={variant}
+      onClick={handleClick}
       {...props}
     />
   );
