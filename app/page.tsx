@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-
-const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
+import { CLOUDFLARE_R2_URL } from "@/lib/types";
 
 export default function Home() {
   const [step, setStep] = useState(1);

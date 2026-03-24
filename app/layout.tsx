@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { IBM_Plex_Sans_Thai } from "next/font/google";
+import { CLOUDFLARE_R2_URL } from "@/lib/types";
 
 const ibmPlexSans = IBM_Plex_Sans_Thai({
   weight: ["400", "700"],
@@ -10,7 +11,6 @@ const ibmPlexSans = IBM_Plex_Sans_Thai({
 // ดึง Base URL จาก Environment Variable (แนะนำ)
 const PROJECT_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://oat-project.sirasith.net";
-const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
 export const metadata: Metadata = {
   metadataBase: new URL(PROJECT_URL),

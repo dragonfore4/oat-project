@@ -1,7 +1,5 @@
 import { createImageQ, createInfo, createScaleQ } from "../helpers";
-import type { Question } from "../types";
-
-const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
+import { CLOUDFLARE_R2_URL, type Question } from "../types";
 
 const f = (file: string) => `${CLOUDFLARE_R2_URL}/health/${file}`;
 

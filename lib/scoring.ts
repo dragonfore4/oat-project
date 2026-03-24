@@ -17,13 +17,10 @@ export function calculateResult(
 
   // random 0, 1, 2, 3
   const randomIndex = Math.floor(Math.random() * 4);
-
   const selectedResult = resultData[topicId][groupId][randomIndex];
   return {
     topicId,
     groupId,
     variantId: randomIndex + 1,
-    name: selectedResult.name,
-    description: selectedResult.desc,
   };
 }
