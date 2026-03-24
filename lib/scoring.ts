@@ -3,7 +3,7 @@ import type { GroupId, PersonalityResult, TopicId } from "./types";
 
 export function calculateResult(
   topicId: TopicId,
-  totalScore: number,
+  totalScore: number
 ): PersonalityResult {
   let groupId: GroupId;
 

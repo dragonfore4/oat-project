@@ -29,7 +29,7 @@ export const healthQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 10.png"),
-    "54%",
+    "54%"
   ),
   createInfo("info1", "health", f("Artboard 11.png")),
   createImageQ("q11", "health", f("Artboard 12.png"), [
@@ -51,7 +51,7 @@ export const healthQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 16.png"),
-    "52%",
+    "52%"
   ),
   createInfo("info1", "health", f("Artboard 17.png")),
   createImageQ("q17", "health", f("Artboard 18.png"), [
@@ -67,7 +67,7 @@ export const healthQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 20.png"),
-    "55%",
+    "55%"
   ),
   createInfo("info1", "health", f("Artboard 21.png")),
 ];

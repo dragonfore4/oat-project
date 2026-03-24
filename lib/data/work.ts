@@ -38,7 +38,7 @@ export const workQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 10.png"),
-    "56%",
+    "56%"
   ),
   createInfo("info1", "work", f("Artboard 11.png")),
   createScaleQ(
@@ -48,7 +48,7 @@ export const workQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 12.png"),
-    "54%",
+    "54%"
   ),
   createInfo("info1", "work", f("Artboard 13.png")),
   createImageQ("q14", "work", f("Artboard 14.png"), [
@@ -64,7 +64,7 @@ export const workQuestions: Question[] = [
     "disagree",
     "agree",
     f("Artboard 16.png"),
-    "52%",
+    "52%"
   ),
   createInfo("info1", "work", f("Artboard 17.png")),
 ];
