@@ -69,7 +69,8 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
     <div className="absolute inset-0 z-20 flex h-full w-full flex-col">
       {/* ปุ่มที่ 1 */}
       <button
-        className="absolute left-0 h-[12%] w-full bg-red-500 opacity-0 transition-opacity"
+        // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-red-500 opacity-20 transition-opacity"
+        className="absolute left-0 z-50 h-[12%] w-full bg-red-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[0])}
         style={{ top: pos1.top }}
         type="button"
@@ -77,7 +78,8 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
 
       {/* ปุ่มที่ 2 */}
       <button
-        className="absolute left-0 h-[12%] w-full bg-green-500 opacity-0 transition-opacity"
+        // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-green-500 opacity-20 transition-opacity"
+        className="absolute left-0 z-50 h-[12%] w-full bg-green-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[1])}
         style={{ top: pos2.top }}
         type="button"
@@ -85,7 +87,8 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
 
       {/* ปุ่มที่ 3 */}
       <button
-        className="absolute left-0 h-[12%] w-full bg-blue-500 opacity-0 transition-opacity"
+        // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-blue-500 opacity-20 transition-opacity"
+        className="absolute left-0 z-50 h-[12%] w-full bg-blue-500 opacity-0 transition-opacity"
         onClick={() => onAnswer(question.options?.[2])}
         style={{ top: pos3.top }}
         type="button"
