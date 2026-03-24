@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import type { PersonalityResult } from "@/lib/types";
+import { CLOUDFLARE_R2_URL, type PersonalityResult } from "@/lib/types";
 
 interface ResultClientProps {
   personality: PersonalityResult;
 }
-const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
 
 export function ResultClient({ personality }: ResultClientProps) {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { questions } from "@/lib";
+import { questions } from "@/lib/questions";
 import { QuizClient } from "./components/quiz-client";
 
 export default async function QuizPage({

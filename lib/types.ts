@@ -59,6 +59,6 @@ export interface PersonalityResult {
   topicId: TopicId;
   groupId: GroupId;
   variantId: number; // 1-4
-  name: string;
-  description: string;
 }
+
+export const CLOUDFLARE_R2_URL = "https://oat-project-img.sirasith.net";
