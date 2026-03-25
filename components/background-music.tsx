@@ -29,7 +29,9 @@ export default function BackgroundMusic() {
 
   useEffect(() => {
     const handleStartMusic = async () => {
-      if (!audioRef.current || musicStarted) return;
+      if (!audioRef.current || musicStarted) {
+        return;
+      }
 
       try {
         await audioRef.current.play();
