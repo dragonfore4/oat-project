@@ -7,6 +7,17 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { openings } from "@/lib/opening";
 
+const playClickSound = () => {
+  const audio = new Audio("/click.mp3");
+  audio.volume = 0.5;
+  const playPromise = audio.play();
+  if (playPromise) {
+    playPromise.catch((error) => {
+      console.warn("Opening page sound effect playback failed", error);
+    });
+  }
+};
+
 export default function Home() {
   const [step, setStep] = useState(1);
 
@@ -15,7 +26,7 @@ export default function Home() {
       const img = new window.Image();
       img.src = url;
     }
-  }, []); 
+  }, []);
 
   const handleBack = () => {
     if (step > 1) {
@@ -26,6 +37,9 @@ export default function Home() {
   const nextStep = () => {
     if (step < openings.length) {
       setStep(step + 1);
+    }
+    if (step === 1) {
+      window.dispatchEvent(new Event("start-background-music"));
     }
   };
 
@@ -54,7 +68,7 @@ export default function Home() {
       >
         {step > 1 && (
           <Button
-            className="absolute top-4 left-4 z-50 rounded-full bg-black text-white hover:bg-black/40"
+            className="absolute top-4 left-4 z-50 rounded-full bg-black/20 text-white hover:bg-black/40"
             onClick={handleBack}
             size="icon"
             variant="ghost"
@@ -79,7 +93,10 @@ export default function Home() {
             <button
               // className="absolute bottom-[14%] left-1/2 h-[10%] w-[60%] -translate-x-1/2 cursor-pointer rounded-full bg-red-500 opacity-10"
               className="absolute inset-0 h-full w-full cursor-pointer bg-red-500 opacity-10"
-              onClick={nextStep}
+              onClick={() => {
+                playClickSound();
+                nextStep();
+              }}
               type="button"
             />
           )}
@@ -87,7 +104,10 @@ export default function Home() {
           {step === 2 && (
             <button
               className="absolute bottom-[14%] left-1/2 h-[10%] w-[60%] -translate-x-1/2 cursor-pointer rounded-full bg-red-500 opacity-0"
-              onClick={nextStep}
+              onClick={() => {
+                playClickSound();
+                nextStep();
+              }}
               type="button"
             />
           )}
@@ -95,7 +115,10 @@ export default function Home() {
           {step >= 3 && step <= 5 && (
             <button
               className="absolute inset-0 h-full w-full cursor-pointer bg-red-200/0 opacity-0"
-              onClick={nextStep}
+              onClick={() => {
+                playClickSound();
+                nextStep();
+              }}
               type="button"
             />
           )}
@@ -105,18 +128,22 @@ export default function Home() {
               <Link
                 className="absolute top-[32%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
                 href="quiz?topicId=love"
+                onClick={playClickSound}
               />
               <Link
                 className="absolute top-[46%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
                 href="quiz?topicId=work"
+                onClick={playClickSound}
               />
               <Link
                 className="absolute top-[60%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
                 href="quiz?topicId=health"
+                onClick={playClickSound}
               />
               <Link
                 className="absolute top-[74%] left-1/2 h-[10%] w-[70%] -translate-x-1/2 cursor-pointer rounded-full bg-blue-500 opacity-0"
                 href="quiz?topicId=finance"
+                onClick={playClickSound}
               />
             </>
           )}

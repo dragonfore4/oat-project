@@ -14,6 +14,17 @@ const DEFAULT_POSITIONS = [
   { top: "70%" }, // ปุ่ม 3
 ];
 
+const playClickSound = () => {
+  const audio = new Audio("/click.mp3");
+  audio.volume = 0.5;
+  const playPromise = audio.play();
+  if (playPromise) {
+    playPromise.catch((error) => {
+      console.warn("Opening page sound effect playback failed", error);
+    });
+  }
+};
+
 export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
   const [sliderValue, setSliderValue] = useState(2);
 
@@ -21,7 +32,10 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
     return (
       <button
         className="absolute inset-0 z-20 h-full w-full cursor-pointer"
-        onClick={() => onAnswer()}
+        onClick={() => {
+          playClickSound();
+          onAnswer();
+        }}
         type="button"
       />
     );
@@ -46,13 +60,14 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
 
         <button
           className="absolute bottom-[10%] rounded-full bg-white px-8 py-3 font-bold text-pink-600 shadow-lg transition-transform hover:scale-105"
-          onClick={() =>
+          onClick={() => {
+            playClickSound();
             onAnswer({
               id: "scale",
               text: String(sliderValue),
               score: sliderValue,
-            })
-          }
+            });
+          }}
           type="button"
         >
           ยืนยัน (NEXT)
@@ -71,7 +86,10 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
       <button
         // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-red-500 opacity-20 transition-opacity"
         className="absolute left-0 z-50 h-[12%] w-full bg-red-500 opacity-0 transition-opacity"
-        onClick={() => onAnswer(question.options?.[0])}
+        onClick={() => {
+          playClickSound();
+          onAnswer(question.options?.[0]);
+        }}
         style={{ top: pos1.top }}
         type="button"
       />
@@ -80,7 +98,10 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
       <button
         // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-green-500 opacity-20 transition-opacity"
         className="absolute left-0 z-50 h-[12%] w-full bg-green-500 opacity-0 transition-opacity"
-        onClick={() => onAnswer(question.options?.[1])}
+        onClick={() => {
+          playClickSound();
+          onAnswer(question.options?.[1]);
+        }}
         style={{ top: pos2.top }}
         type="button"
       />
@@ -89,7 +110,10 @@ export function QuestionCard({ question, onAnswer }: QuestionCardProps) {
       <button
         // className="absolute left-0 z-50 h-[12%] w-full cursor-pointer bg-blue-500 opacity-20 transition-opacity"
         className="absolute left-0 z-50 h-[12%] w-full bg-blue-500 opacity-0 transition-opacity"
-        onClick={() => onAnswer(question.options?.[2])}
+        onClick={() => {
+          playClickSound();
+          onAnswer(question.options?.[2]);
+        }}
         style={{ top: pos3.top }}
         type="button"
       />
