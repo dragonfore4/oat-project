@@ -12,32 +12,24 @@ export default function BackgroundMusic() {
   useEffect(() => {
     const audio = new Audio("/bgm.mp3");
     audio.loop = true;
-    audio.preload = "auto";
     audio.volume = 0.15;
-    audio.muted = isMuted;
-
     audioRef.current = audio;
 
     return () => {
       audio.pause();
       audioRef.current = null;
     };
-  }, [isMuted]);
+  }, []);
 
   useEffect(() => {
-    if (!audioRef.current) {
-      return;
+    if (audioRef.current) {
+      audioRef.current.muted = isMuted;
     }
-
-    audioRef.current.muted = isMuted;
-    audioRef.current.volume = 0.15;
   }, [isMuted]);
 
   useEffect(() => {
     const handleStartMusic = async () => {
-      if (!audioRef.current || musicStarted) {
-        return;
-      }
+      if (!audioRef.current || musicStarted) return;
 
       try {
         await audioRef.current.play();
@@ -48,25 +40,24 @@ export default function BackgroundMusic() {
     };
 
     window.addEventListener("start-background-music", handleStartMusic);
-
-    return () => {
+    return () =>
       window.removeEventListener("start-background-music", handleStartMusic);
-    };
   }, [musicStarted]);
+
+  const handleToggleMute = () => {
+    setIsMuted((prev) => !prev);
+  };
 
   return (
     <Button
       aria-label={isMuted ? "Unmute background music" : "Mute background music"}
-      className="fixed top-4 right-4 z-[9999] rounded-full bg-black/20 text-white hover:bg-black/40"
-      onClick={() => {
-        const nextMuted = !isMuted;
-        setIsMuted(nextMuted);
-
-        if (audioRef.current) {
-          audioRef.current.muted = nextMuted;
-        }
-      }}
+      className="fixed z-9999 rounded-full bg-black/20 text-white hover:bg-black/40"
+      onClick={handleToggleMute}
       size="sm"
+      style={{
+        right: "calc((100vw - min(100vw, 100dvh * 9 / 16)) / 2 + 1rem)",
+        top: "calc((100dvh - min(100dvh, 100vw * 16 / 9)) / 2 + 1rem)",
+      }}
       variant="ghost"
     >
       {isMuted ? (
