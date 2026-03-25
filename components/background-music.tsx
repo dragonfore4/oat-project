@@ -53,9 +53,9 @@ export default function BackgroundMusic() {
   return (
     <Button
       aria-label={isMuted ? "Unmute background music" : "Mute background music"}
-      className="fixed z-9999 rounded-full bg-black/20 text-white hover:bg-black/40"
+      className="absolute z-9999 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xl hover:bg-white/20 transition-all duration-300 active:scale-95"
       onClick={handleToggleMute}
-      size="sm"
+      size="icon"
       style={{
         right: "calc((100vw - min(100vw, 100dvh * 9 / 16)) / 2 + 1rem)",
         top: "calc((100dvh - min(100dvh, 100vw * 16 / 9)) / 2 + 1rem)",
@@ -63,9 +63,9 @@ export default function BackgroundMusic() {
       variant="ghost"
     >
       {isMuted ? (
-        <VolumeX className="h-5 w-5" />
+        <VolumeX className="h-6 w-6 text-black" />
       ) : (
-        <Volume2 className="h-5 w-5" />
+        <Volume2 className="h-6 w-6 text-white" />
       )}
     </Button>
   );

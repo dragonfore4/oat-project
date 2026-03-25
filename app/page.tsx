@@ -68,7 +68,7 @@ export default function Home() {
       >
         {step > 1 && (
           <Button
-            className="absolute top-4 left-4 z-50 rounded-full bg-black text-white hover:bg-black/40"
+            className="absolute top-4 left-4 z-50 rounded-full bg-black/20 text-white hover:bg-black/40"
             onClick={handleBack}
             size="icon"
             variant="ghost"
